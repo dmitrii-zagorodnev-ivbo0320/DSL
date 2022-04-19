@@ -19,7 +19,7 @@ public class Main {
 
 	public static String checkFile(){
 		String code="";
-		try(FileReader reader = new FileReader("Code.txt"))
+		try(FileReader reader = new FileReader("/Users/dmitrii/Documents/MIREA/DSL/Parser-Interpretator/src/Code.txt"))
 		{
 			int c;
 			while((c=reader.read())!=-1){
