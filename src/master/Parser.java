@@ -24,7 +24,7 @@ public class Parser {
     public void need(String[] expected){
         Token token= receive(expected);
         if(token==null){
-            throw new Error("На позииции "+pos+" ожидается "+expected[0]);
+            throw new Error("\nНа позииции ("+pos+") ожидается "+expected[0]);
         }
     }
     public Node parseVarNum(){
@@ -36,7 +36,8 @@ public class Parser {
             pos++;
             return new VarNode(tokens.get(pos-1));
         }
-         throw new Error("Ожидается переменная или число на позиции: "+pos);
+         
+         throw new Error("\nОжидается переменная или число на позиции ("+pos+")\n");
     }
     public Node parsePar(){
         if (tokens.get(pos).type.typeName.equals("LPAR")){
@@ -76,7 +77,7 @@ public class Parser {
                Node rightVal = parseFormula();
                return new BinOpNode(assign, varNode, rightVal);
            }
-           throw new Error("После переменной ожидается = на позиции:"+pos);
+           throw new Error("\nПосле переменной ожидается = на позиции ("+pos+")\n");
        }
        else if (tokens.get(pos).type.typeName.equals("PRINT")){
            pos++;
@@ -91,7 +92,7 @@ public class Parser {
            pos++;
            return parseFor();
        }
-       throw new Error("Ошибка на позиции: "+pos+". Ожидалось действие или переменная");
+       throw new Error("\nОшибка на позиции ("+pos+"). Ожидалось действие или переменная");
    }
     public Node parseFor(){
        Node leftVal=parseFormula();
@@ -105,13 +106,13 @@ public class Parser {
        Node rightActVal = parseFormula();
        BinOpNode action= new BinOpNode(assign, varNode, rightActVal);
        if (assign == null)
-           throw new Error("После переменной ожидается = на позиции:"+pos);
+           throw new Error("\nПосле переменной ожидается = на позиции ("+pos+")\n");
        ForNode forNode= new ForNode(operator,leftVal,rightVal,action);
        need(new String[]{"LRectPar"});
        while(!tokens.get(pos).type.typeName.equals("RRectPAR")) {
            forNode.addOperations(getOperations());
            if (pos==tokens.size())
-               throw new Error("Ошибка, ожидалось }");
+               throw new Error("\nОшибка, ожидалось }");
        }
        pos++;
        return forNode;
@@ -125,7 +126,7 @@ public class Parser {
         while(!tokens.get(pos).type.typeName.equals("RRectPAR")) {
             whileNode.addOperations(getOperations());
             if (pos==tokens.size())
-                throw new Error("Ошибка, ожидалось }");
+                throw new Error("\nОшибка, ожидалось }");
         }
         pos++;
         return whileNode;
