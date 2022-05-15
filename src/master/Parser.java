@@ -52,6 +52,7 @@ public class Parser {
     public Node parseMultDiv(){
         Node leftVal= parsePar();
         Token operator= receive(new String[]{"MULT","DIV"});
+        // Парсер проходиться по "дереву"
         while (operator!=null){
             Node rightVal= parsePar();
             leftVal=new BinOpNode(operator,leftVal,rightVal);

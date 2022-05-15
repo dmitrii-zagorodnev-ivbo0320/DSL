@@ -6,6 +6,8 @@ public class WhileNode extends Node{
     Token operator;
     Node leftVal;
     Node rightVal;
+
+    // Структурирование данных ноды через ArrayList
     public ArrayList<Node> operations = new ArrayList<>();
 
     public WhileNode(Token operator, Node leftVal, Node rightVal) {

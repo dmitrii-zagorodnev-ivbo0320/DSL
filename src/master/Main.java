@@ -35,10 +35,10 @@ public class Main {
 		String s=checkFile();
 		System.out.println(ANSI_BLUE + "\n\nИсходный код программы:" + ANSI_WHITE);
 		System.out.println(s);
-		System.out.println(ANSI_BLUE + "\nЗначения лексера:" + ANSI_WHITE);
+		System.out.printf("\n" + ANSI_BLUE + "\nЗначения лексера:" + ANSI_WHITE);
 		Lexer lexer=new Lexer(s);
 		Parser parser=new Parser(lexer.analyze());
-		System.out.println(ANSI_YELLOW + "(n) - номер токена данных." + ANSI_WHITE);
+		System.out.println("\n" + ANSI_PURPLE + "[n] " + ANSI_WHITE + "- номер токена данных." + ANSI_WHITE);
 		System.out.println(ANSI_BLUE + "\nВычисления интерпретатора:" + ANSI_WHITE);
 		RootNode root=parser.parseTokens();
 		Interpreter interpreter =new Interpreter();
