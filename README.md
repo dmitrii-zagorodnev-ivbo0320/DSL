@@ -7,3 +7,6 @@
 ![alt text](https://i.imgur.com/KYgn7Y7.png)
 Обновленный лексер:
 ![alt text](https://i.imgur.com/xyKBW7m.png)
+
+Структура данных:
+![alt text](https://i.imgur.com/TPd3jsh.jpg)
