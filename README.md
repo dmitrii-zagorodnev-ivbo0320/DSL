@@ -9,4 +9,5 @@
 ![alt text](https://i.imgur.com/xyKBW7m.png)
 
 Структура данных:
+
 ![alt text](https://i.imgur.com/TPd3jsh.jpg)
